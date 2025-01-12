@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="index.css" />
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
   <title>Communication</title>
 </head>
 
@@ -255,11 +255,11 @@
         <!-- Example: Two side-by-side images -->
         <div class="image-wrapper">
           <figure>
-            <img src="images/photo-uncaptioned.jpg" alt="A scenic photo with a playful caption" />
+            <img src="images/photo-uncaptioned.jpg" alt="A scenic photo with a playful caption">
             <figcaption>A quiet pause in the city’s daily rush.</figcaption>
           </figure>
           <figure>
-            <img src="images/photo-uncaptioned.jpg" alt="The same scenic photo without a caption" />
+            <img src="images/photo-uncaptioned.jpg" alt="The same scenic photo without a caption">
             <figcaption>(No caption)</figcaption>
           </figure>
         </div>
@@ -272,13 +272,18 @@
           Hover over the shape below to reveal a hidden message,
           illustrating how communication can be layered or obscured.
         </p>
-        <!-- Example: A box that reveals text on hover -->
-        <div class="hover-box">
+
+        <div class="hover-box" aria-label="Hover to reveal a hidden message">
+          <!-- Visible text for everyone -->
+          <div class="hover-instruction">Hover to reveal</div>
+
+          <!-- The hidden message -->
           <div class="hover-message">
             Hidden message: "Context shapes interpretation."
           </div>
         </div>
       </article>
+
     </div>
 
     <p>

@@ -290,3 +290,48 @@ figure figcaption {
   gap: 1rem;
   margin-top: 1rem;
 }
+
+.hover-box {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  background-color: #161616;
+  /* dark background */
+  border-radius: 8px;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Visible instruction with adequate contrast (e.g., white on #444) */
+.hover-instruction {
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* The hidden message is hidden by default */
+.hover-message {
+  position: absolute;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  /* hidden initially */
+  transition: opacity 0.3s ease;
+}
+
+/* Reveal hidden text on hover or keyboard focus */
+.hover-box:hover .hover-message,
+.hover-box:focus-within .hover-message {
+  opacity: 1;
+}
+
+/* Optionally hide the instruction when hovering or focusing
+   to reduce overlap with the message. */
+.hover-box:hover .hover-instruction,
+.hover-box:focus-within .hover-instruction {
+  visibility: hidden;
+  /* or opacity: 0; transition if desired */
+}
