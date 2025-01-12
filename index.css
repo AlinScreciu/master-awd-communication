@@ -12,49 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.intro-header {
-  font-size: 72px;
-  background: linear-gradient(90deg, #00b7ff, #00ff66);
-  color: transparent;
-  background-clip: text;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-}
-
-section {
-  padding: 2em;
-  background-color: #262626;
-  border-radius: 30px;
-}
-
+/* Body and Overall Layout */
 body {
   padding: 3rem;
   font-size: 1.2em;
@@ -63,18 +21,272 @@ body {
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  gap: 4rem;
+  margin: 0;
+  /* Ensures no default body margin */
 }
 
+/* Main Title */
+.intro-header {
+  font-size: 72px;
+  background: linear-gradient(90deg, #00b7ff, #00ff66);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  padding-top: 30vh;
+  padding-bottom: 40vh;
+}
 
+@media (max-width: 600px) {
+  .intro-header {
+    font-size: 2.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Section Wrapper */
+.section {
+  padding: 2em;
+  background-color: #262626;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* The main container for all context categories */
+#contexts {
+  /* This flex container wraps each .context-category side by side */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Make sure the main heading for #contexts spans full width if desired */
+#contexts h2 {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+/* Section Headings (like 'Definition') */
 .section-header {
   font-size: 2em;
   padding-bottom: 1em;
-
+  text-align: center;
 }
 
+/* Emphasis text (like "transmission of information") */
 .emp {
   font-weight: 700;
   background: linear-gradient(#00b7ff, #00ff66);
   color: transparent;
   background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Each context category (e.g. "Specific Contexts", "Broader Contexts") */
+.context-category {
+  /* 
+   * By default, these remain stacked vertically (unless you 
+   * want them side by side with a flex or grid layout).
+   */
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Category Title (like "Specific Contexts") */
+.category-title {
+  font-size: 1.8em;
+  color: rgba(255, 255, 255, 0.87);
+  margin-bottom: 0.5rem;
+  text-align: left;
+  /* or center, if you prefer */
+}
+
+/* Cards Wrapper: flow row, wrap when needed */
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  /* or center, space-around, etc. */
+}
+
+/* Each Card */
+.context-card {
+  background-color: #333;
+  color: #fff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  max-width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  font-size: 1em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.context-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Heading */
+.context-card h4 {
+  font-size: 1.5em;
+  margin-bottom: 1rem;
+  background: linear-gradient(#00b7ff, #00ff66);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Paragraphs inside Cards */
+.context-card p {
+  line-height: 1.5;
+}
+
+/* ================================ */
+/*   Derivative Forms (Section 3)   */
+/* ================================ */
+#derivative-forms .cards-wrapper {
+  display: grid;
+  /* Two columns by default, each at least 300px, filling up remaining space */
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 1.5rem;
+
+  /* Center the entire grid within its container */
+  justify-content: center;
+
+  /* Optionally constrain the maximum width so it doesn't stretch too wide */
+  max-width: 900px;
+  margin: 0 auto;
+  /* center horizontally in parent */
+}
+
+@media (max-width: 600px) {
+  #derivative-forms .cards-wrapper {
+    grid-template-columns: 1fr;
+    /* Single column on narrow screens */
+    max-width: 600px;
+    /* Adjust as needed */
+  }
+}
+
+/* =============================== */
+/*  Creative Experimentation CSS   */
+/* =============================== */
+
+/* Section for creative experiments (optional extra padding or styling) */
+#creative-experiments {
+  margin-top: 2rem;
+  /* space above the section */
+}
+
+/* Figures for captioned vs. uncaptioned images */
+figure {
+  margin: 0;
+  /* remove default figure margin */
+  text-align: center;
+  /* center content */
+}
+
+figure img {
+  max-width: 100%;
+  /* responsive image */
+  border-radius: 10px;
+  /* slightly rounded corners */
+}
+
+figure figcaption {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+}
+
+/* Hover Reveal Box */
+.hover-box {
+  position: relative;
+  width: 200px;
+  /* set desired width */
+  height: 100px;
+  /* set desired height */
+  background-color: #444;
+  /* background for the box */
+  border-radius: 8px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  /* Add some flex centering if desired */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The hidden message inside the box */
+.hover-message {
+  position: absolute;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  /* hidden by default */
+  transition: opacity 0.3s ease;
+  /* If you'd like it vertically centered, you can use transform: */
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+/* Reveal on hover */
+.hover-box:hover .hover-message {
+  opacity: 1;
+}
+
+/* Accessible focus reveal (for keyboard users) */
+.hover-box:focus-within .hover-message {
+  opacity: 1;
+}
+
+/* Container for the color blocks */
+.color-blocks {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+  /* center them horizontally */
+}
+
+/* Common styling for each shape */
+.color-shape {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+  border-radius: 8px;
+  /* default slight rounding */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Circle in warm color (e.g., red/orange) */
+.circle-warm {
+  border-radius: 50%;
+  /* Make it circular */
+  background: linear-gradient(135deg, #ff5656, #ff9900);
+}
+
+/* Square in cool color (e.g., blue/teal) */
+.square-cool {
+  background: linear-gradient(135deg, #00bfff, #0055ff);
+}
+
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
 }
